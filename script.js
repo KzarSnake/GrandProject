@@ -66,18 +66,17 @@ detectPersonalLevel();
 
 function writeYourGenres() {
     for (let i = 0; i < 3; i++) {
-        const a = prompt('Ваш любимый жанр под номером ' + (+i + 1), '');
-        personalMovieDB.genres[i] = a;
+        personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${+i + 1}`, '');
     }
 }
 
 writeYourGenres();
 
-function showMyDB() {
-    if (personalMovieDB.privat == false) {
+function showMyDB (hidden) {
+    if (!hidden) {
         console.log(personalMovieDB);
     }
 }
 
-showMyDB();
+showMyDB(personalMovieDB.privat);
 
